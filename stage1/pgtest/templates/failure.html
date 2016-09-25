@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Failed{{ block.super }}{% endblock %}
+
+{% block content %}
+
+    <div class="card">
+        <div class="card-content">
+            <span  style="font-size: 20pt; font-weight: lighter;">
+                Oops, Transaction Failed
+                <br>
+                Go to <a href="{% url 'dash' %}" >Dashboard</a>
+                <p> This shouldn't happen and yet, here we are.Feel free to email us at
+                <a href="#" >easyreturns.tax@gmail.com</a> </p>
+
+            </span>
+
+        </div>
+    </div>
+
+{% endblock %}

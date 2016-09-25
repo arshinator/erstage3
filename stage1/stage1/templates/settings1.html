@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Settings{{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div align="center" class="card-content">
+        <span style="font-size: 25pt; font-weight: lighter;">
+            <p>
+                Please, complete your profile to access this page.
+            </p>
+        </span>
+        <button class='btn btn-block btn-primary '>
+            <a class="white-text" href="{% url 'registration_create_profile' %}">Complete Profile</a></button>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% load staticfiles %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/style_b.css' %} ">
+</head>
+
+
+
+<body>
+
+{% if messages %}
+<ul class="messages">
+{% for message in messages %}
+    <a href=""><span id='close' style="color:rgb(49, 112, 143)">X</span></a>
+    <li>
+
+        {{message}}
+
+    </li>
+
+{% endfor %}
+
+</ul>
+{% endif %}
+
+
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="messages">
+            {{ error|escape }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% for error in form.non_field_errors %}
+
+        <div class="messages">
+        {{ error|escape }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+    window.onload = function(){
+    document.getElementById('close').onclick = function(){
+        this.parentNode.parentNode.parentNode
+        .removeChild(this.parentNode.parentNode);
+        return false;
+    };
+};
+
+</script>
+
+
+</body>

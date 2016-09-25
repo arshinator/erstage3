@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}Register{{ block.super }}{% endblock %}
+
+{% block content %}
+{% if not user.is_authenticated %}
+    <div class="row">
+                <br>
+                <div class="breadcrumb-pagination">
+
+                  <div class="drop_d">
+                        <span>1</span>
+                        <p>Registration</p>
+                  </div>
+
+                  <div class="todo">
+                        <span>2</span>
+                        <p>Create Profile</p>
+                  </div>
+
+
+                </div>
+
+        </div>
+
+<div class="card">
+    <div class="card-content">
+        <span style="font-size: 25pt; font-weight: lighter">Registration Form</span><br>
+            <form method="post" action="." class="col s12">{% csrf_token %}
+
+                 <div class="row">
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="icon_re" name="email" type="email" class="validate black-text" required >
+                        <label  for="icon_re" class="black-text">Email</label>
+                    </div>
+
+
+                     <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_open</i>
+                        <input id="icon_p1" name="password1" type="password" class="validate black-text" required >
+                        <label  for="icon_p1" class="black-text">Password</label>
+                    </div>
+
+
+                     <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="icon_p2" name="password2" type="password" class="validate black-text" required >
+                        <label  for="icon_p2" class="black-text">Confirm Password</label>
+                    </div>
+
+                </div>
+
+                    <p>
+                        <input type="checkbox" id="t_c" required />
+                        <label for="t_c">I here by Agree to EasyReturns <a href=" {% url 'tandc' %}">Terms and Conditions</a></label>
+                    </p>
+                    <input class='btn btn-block btn-primary' type="submit" value="{% trans 'Now,Create My Profile' %}" />
+                    <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+        <br>
+
+    </div>
+
+</div>
+{% else %}
+    <p>You are already logged in.</p>
+{% endif %}
+{% endblock %}

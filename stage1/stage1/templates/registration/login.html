@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+
+{% block title %}Login{{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+{% if not user.is_authenticated %}
+<div class="card">
+    <div class="card-content">
+        <span style="font-size: 25pt; font-weight: lighter">Login Form</span><br>
+            <form method="post" action="." class="col s12">{% csrf_token %}
+                  <div class="row">
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="icon_e" name="username" type="email" class="validate black-text" required >
+                        <label  for="icon_e" class="black-text">Email</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="icon_p" name="password" type="password" class="validate black-text" required >
+                        <label for="icon_p" class="black-text">Password</label>
+                    </div>
+
+                    <input class='btn btn-block btn-primary' type="submit" value="{% trans 'Submit' %}" />
+                    <input type="hidden" name="next" value="{{ next }}" />
+
+                  </div>
+            </form>
+<br>
+    <div class="card-action.blue">
+           <p>
+                {% trans "FORGOT PASSWORD" %}? <a href="{% url 'auth_password_reset' %}">{% trans "RESET IT" %}</a>
+                &emsp;|&emsp;
+                {% trans "NOT MEMBER" %}? <a href="{% url 'registration_register' %}">{% trans "REGISTER" %}</a></p>
+
+        </div>
+    </div>
+</div>
+{% else %}
+    <p>You are already logged in.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Checkout{{ block.super }}{% endblock %}
+
+{% block content %}
+
+<div class="card">
+<div class="card-content">
+<div class="container"><br>
+
+
+    <form method="post" name="order_form">{% csrf_token %}
+
+        <!--<div class="row">-->
+
+            <!--<div class="input-field col s8">-->
+                <!---->
+                <!--<input disabled value="{{txnid}}" id="disabled" name="txnid" type="text" class="validate">-->
+                <!--<label for="disabled">TxId</label>-->
+            <!--</div>-->
+            <!--<div class="input-field col s4">-->
+                <!--<i class="material-icons prefix">info_outline</i>-->
+                <!--<input disabled value="500" id="disabled_amount" name="amount" type="text" class="validate">-->
+                <!--<label for="disabled_amount">Amount</label>-->
+            <!--</div>-->
+
+
+            <!--<div class="input-field col s12">-->
+                <!--<i class="material-icons prefix">info_outline</i>-->
+                <!--<input disabled value=productinfo id="disabled_info" name="productinfo" type="text" class="validate">-->
+                <!--<label for="disabled_info">Product Info</label>-->
+            <!--</div>-->
+
+
+            <!--<div class="input-field col s6">-->
+                <!--<i class="material-icons prefix">perm_identity</i>-->
+                <!--<input id="id_firstname" name="firstname" type="text" value="{{request.user.profile.first_name}}"  class="validate black-text" required>-->
+                <!--<label for="id_firstname" class="black-text">First Name</label>-->
+            <!--</div>-->
+            <!--<div class="input-field col s6">-->
+                <!--<i class="material-icons prefix">perm_identity</i>-->
+                <!--<input id="id_lastname" name="lastname" type="text" value="{{request.user.profile.last_name}}"  class="validate black-text" required>-->
+                <!--<label for="id_lastname" class="black-text">Last Name</label>-->
+            <!--</div>-->
+
+
+            <!--<div class="input-field col s6">-->
+                <!--<i class="material-icons prefix">email</i>-->
+                <!--<input id="id_email" name="email" type="email" value="{{request.user}}"  class="validate black-text" required>-->
+                <!--<label for="id_email" class="black-text">Email</label>-->
+            <!--</div>-->
+            <!--<div class="input-field col s6">-->
+                <!--<i class="material-icons prefix">phone</i>-->
+                <!--<input id="id_phone" maxlength="10" name="phone" type="number" value="{{request.user.profile.phone}}"  class="validate black-text" required>-->
+                <!--<label for="id_phone" class="black-text">Phone</label>-->
+            <!--</div>-->
+
+            <!--&lt;!&ndash;Address 1 2&ndash;&gt;-->
+
+            <!--<div class="input-field col s12">-->
+                <!--<i class="material-icons prefix">chat</i>-->
+                <!--<textarea id="id_address1" name="address1"  class="materialize-textarea black-text" ></textarea>-->
+                <!--<label for="id_address1" class="black-text">Address 1</label>-->
+            <!--</div>-->
+            <!--<div class="input-field col s12">-->
+                <!--<i class="material-icons prefix">chat</i>-->
+                <!--<textarea id="id_address2" name="address2"  class="materialize-textarea black-text" ></textarea>-->
+                <!--<label for="id_address2" class="black-text">Address 2</label>-->
+            <!--</div>-->
+
+            <!--&lt;!&ndash;city&ndash;&gt;-->
+            <!--<div class="input-field col s6">-->
+                <!--<i class="material-icons prefix">store</i>-->
+                <!--<input id="id_city" name="city" type="text" class="validate black-text" required>-->
+                <!--<label for="id_city" class="black-text">City</label>-->
+            <!--</div>-->
+
+            <!--<div class="input-field col s6">-->
+                <!--<i class="material-icons prefix">location_on</i>-->
+                <!--<input id="id_state" name="state" type="text" class="validate black-text" required>-->
+                <!--<label for="id_state" class="black-text">State</label>-->
+            <!--</div>-->
+
+            <!--<div class="input-field col s6">-->
+                <!--<i class="material-icons prefix">location_on</i>-->
+                <!--<input id="id_country" name="country" type="text" class="validate black-text" required>-->
+                <!--<label for="id_country" class="black-text">Country</label>-->
+            <!--</div>-->
+
+
+            <!--<div class="input-field col s6">-->
+                <!--<i class="material-icons prefix">store</i>-->
+                <!--<input id="id_zipcode" maxlength="6" name="zipcode" type="text" class="validate black-text" required>-->
+                <!--<label for="id_zipcode" class="black-text">Zip Code</label>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;zip&ndash;&gt;-->
+
+
+        {{ form.as_p }}
+
+        <div align="right" class="col offset-s7 s5">
+            <button class="btn waves-effect waves-light red darken-1" type="submit">
+                Payment
+                <i class="mdi-content-send right white-text"></i>
+            </button>
+        </div>
+</div>
+
+
+    </form>
+
+</div></div></div>
+{% endblock %}
+
